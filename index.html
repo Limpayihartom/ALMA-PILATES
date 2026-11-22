@@ -5,29 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex">
   <!-- Versión autocontenida generada por scripts/build.py. Las imágenes se cargan desde assets/images/ (ver config.js → imagesBase). -->
-  <title>MIRA PILATES · Programa de Pilates Asiático de 28 días</title>
+  <title>ALMA PILATES · Programa de Pilates Asiático de 28 días</title>
   <meta name="description" content="Encuentra tu plan personalizado de Pilates Asiático de 28 días. 15 minutos al día, desde casa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-/* MIRA PILATES · Quiz funnel
+/* ALMA PILATES · Quiz funnel
  * Paleta obligatoria:
- *   fondo #F9F6F0 · verde #56745D · verde secundario #ABBDA5 · beige #E8D6C7
- *   texto #26352B · blanco #FFFFFF · bordes #DDE5DA
+ *   fondo #FAF5F0 · verde #526453 · verde secundario #A5AF92 · beige #E6BDB5
+ *   texto #303B30 · blanco #FFFFFF · bordes #DDE5DA
  * Tipografías: Playfair Display (titulares) · DM Sans (textos, botones, preguntas)
  */
 
 :root {
-  --bg: #F9F6F0;
-  --green: #56745D;
-  --green-2: #ABBDA5;
-  --beige: #E8D6C7;
-  --text: #26352B;
+  --bg: #FAF5F0;
+  --green: #526453;
+  --gold: #B99A60;
+  --rose: #E6BDB5;
+  --green-2: #A5AF92;
+  --beige: #E6BDB5;
+  --text: #303B30;
   --white: #FFFFFF;
   --border: #DDE5DA;
   --muted: #5F6F62;
   --radius-lg: 22px;
+  --radius-program: 16px;
   --radius-md: 16px;
   --radius-sm: 12px;
   --shadow-soft: 0 1px 2px rgba(38, 53, 43, 0.06), 0 6px 18px rgba(38, 53, 43, 0.05);
@@ -68,16 +71,16 @@ button { font: inherit; color: inherit; }
 /* ---------- Contenedor ---------- */
 .app {
   width: 100%;
-  max-width: 540px;
+  max-width: 480px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 0 18px 32px;
+  padding: 0 16px 32px;
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 720px) {
-  body { background: #EFEAE0; padding: 24px 0; }
+  body { background: #F0E9E1; padding: 24px 0; }
   .app {
     min-height: calc(100vh - 48px);
     background: var(--bg);
@@ -149,7 +152,7 @@ button { font: inherit; color: inherit; }
 .progress__bar {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, var(--green-2), var(--green));
+  background: var(--green);
   border-radius: 999px;
   transition: width 0.5s var(--ease);
 }
@@ -220,7 +223,7 @@ button { font: inherit; color: inherit; }
 
 .note {
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   background: var(--white);
   border: 1px solid var(--border);
@@ -228,7 +231,7 @@ button { font: inherit; color: inherit; }
   padding: 12px 14px;
 }
 .note--alert {
-  background: #F4EFE8;
+  background: #F7EFE9;
   border-color: var(--beige);
   color: var(--text);
 }
@@ -239,7 +242,7 @@ button { font: inherit; color: inherit; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 54px;
+  min-height: 56px;
   padding: 14px 22px;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -254,7 +257,7 @@ button { font: inherit; color: inherit; }
 .btn:active { transform: scale(0.985); }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 .btn--primary { background: var(--green); color: var(--white); }
-.btn--primary:hover:not(:disabled) { background: #4a6751; }
+.btn--primary:hover:not(:disabled) { background: #465747; }
 .btn--ghost { background: transparent; color: var(--green); border-color: var(--green-2); }
 .btn--ghost:hover { background: var(--white); }
 .btn--small { min-height: 44px; padding: 10px 18px; font-size: 14px; width: auto; }
@@ -302,7 +305,7 @@ button { font: inherit; color: inherit; }
 .option[aria-pressed="true"],
 .option[aria-checked="true"] {
   border-color: var(--green);
-  background: #F3F6F1;
+  background: #F2F4EE;
   box-shadow: 0 0 0 1px var(--green) inset;
 }
 .option__label { flex: 1; font-weight: 500; font-size: 16px; }
@@ -588,11 +591,11 @@ button { font: inherit; color: inherit; }
   place-items: center;
   font-size: 12px;
   font-weight: 600;
-  background: #F3F0EA;
+  background: #F4EEE7;
   color: var(--muted);
 }
 .cal-day--train { background: var(--green); color: var(--white); }
-.cal-day--rest { background: #F3F0EA; }
+.cal-day--rest { background: #F4EEE7; }
 .cal-legend {
   display: flex;
   gap: 16px;
@@ -610,7 +613,7 @@ button { font: inherit; color: inherit; }
   vertical-align: -1px;
   background: var(--green);
 }
-.cal-legend span.rest::before { background: #E9E4DA; }
+.cal-legend span.rest::before { background: #E9E1D6; }
 
 /* ---------- Presentación / oferta ---------- */
 .mockups {
@@ -726,7 +729,7 @@ button { font: inherit; color: inherit; }
   right: 0;
   bottom: 0;
   padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-  background: rgba(249, 246, 240, 0.97);
+  background: rgba(250, 245, 240, 0.97);
   border-top: 1px solid var(--border);
   display: none;
   z-index: 20;
@@ -767,6 +770,47 @@ button { font: inherit; color: inherit; }
 .consent__text { margin: 0 0 12px; font-size: 13px; color: var(--text); }
 .consent__actions { display: flex; gap: 8px; justify-content: flex-end; }
 .consent__actions .btn { width: auto; }
+
+/* ---------- ALMA PILATES · Presentación (cuadrícula 2 × 2) ---------- */
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 4px 0 0;
+}
+.program-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.program-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-program);
+  background: var(--beige);
+}
+.program-card figcaption {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+/* Imagen del plan personalizado (resultados): mismo formato 4:5, sin superar la pantalla */
+.result-media {
+  aspect-ratio: 4 / 5;
+  max-height: 440px;
+}
+.card-eyebrow {
+  padding: 0 20px;
+  margin: 6px 0 0;
+}
+
+/* Sin desplazamiento horizontal en pantallas muy pequeñas (no toca el ancho máximo de .app) */
+.stage, .screen { max-width: 100%; overflow-x: hidden; }
 
 </style>
 </head>
@@ -818,9 +862,9 @@ button { font: inherit; color: inherit; }
  * se publica en el navegador.
  */
 window.MIRA_CONFIG = {
-  // Marca (nombre provisional: MIRA PILATES). Cámbialo aquí cuando tengas el definitivo.
-  brandName: "MIRA PILATES",
-  brandTagline: "Método Asiático",
+  // Marca: ALMA PILATES · MÉTODO ASIÁTICO
+  brandName: "ALMA PILATES",
+  brandTagline: "MÉTODO ASIÁTICO",
   logoUrl: "", // URL del logo (ej. "https://cdn.tu-sitio.com/logo.svg"). Vacío = muestra el nombre en texto.
 
   // Producto
@@ -833,7 +877,7 @@ window.MIRA_CONFIG = {
 
   // Checkout: URL del producto/carrito/checkout. Los parámetros UTM se añaden automáticamente.
   checkoutUrl: "",
-  checkoutButtonLabel: "QUIERO COMENZAR MI PLAN",
+  checkoutButtonLabel: "¡Sí, quiero comenzar mi plan!",
 
   // Métodos de pago: SOLO los que realmente tengas activos. Si el array está vacío, la sección no se muestra.
   paymentMethods: [],
@@ -876,7 +920,7 @@ window.MIRA_CONFIG = {
 </script>
   <script>
 /*
- * MIRA PILATES · Quiz funnel (JavaScript vanilla, sin dependencias)
+ * ALMA PILATES · Quiz funnel (JavaScript vanilla, sin dependencias)
  * - Variantes A (corta, 12 pantallas) y B (completa, 25 pantallas) con ?variant=A|B
  * - Persistencia de respuestas y progreso en sessionStorage (sobrevive a recargas)
  * - Personalización real: el plan y el calendario se calculan con las respuestas
@@ -924,7 +968,13 @@ window.MIRA_CONFIG = {
     'product-program': 'Mockup del programa de Pilates Asiático',
     'product-recipes': 'Mockup del recetario complementario',
     'product-bundle': 'Composición de los productos digitales incluidos',
-    'hero': 'Mujer latina madura practicando pilates en casa'
+    'hero': 'Mujer latina madura practicando pilates en casa',
+    'alma-ebook': 'Portada de la Guía de 28 días de Alma Pilates',
+    'alma-bundle': 'Guía, tablet, celular y mat de Alma Pilates',
+    'alma-workbook': 'Workbook de práctica de Alma Pilates',
+    'alma-app': 'Aplicación de Alma Pilates en el celular',
+    'alma-calendario': 'Calendario de 28 días de Alma Pilates',
+    'alma-plan-personalizado': 'Tarjeta de tu plan personalizado de Alma Pilates'
   };
 
   var SCREENS = {
@@ -1202,9 +1252,12 @@ window.MIRA_CONFIG = {
   }
 
   function money(value, currency) {
-    var n = Number(value).toFixed(2);
-    var symbol = currency === 'USD' ? 'USD $' : (currency + ' ');
-    return symbol + n;
+    return '$' + Number(value).toFixed(2) + ' ' + (currency || 'USD');
+  }
+
+  function cap(text) {
+    text = String(text || '');
+    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
   // ---------- Estado ----------
@@ -1458,7 +1511,7 @@ window.MIRA_CONFIG = {
   function renderBrand() {
     var logo = CFG.logoUrl
       ? '<img src="' + esc(CFG.logoUrl) + '" alt="' + esc(CFG.brandName) + '">'
-      : esc(CFG.brandName || 'MIRA PILATES') + (CFG.brandTagline ? '<span class="brand__tagline">' + esc(CFG.brandTagline) + '</span>' : '');
+      : esc(CFG.brandName || 'ALMA PILATES') + (CFG.brandTagline ? '<span class="brand__tagline">' + esc(CFG.brandTagline) + '</span>' : '');
     brandEl.innerHTML = logo;
   }
 
@@ -1617,27 +1670,27 @@ window.MIRA_CONFIG = {
     if (plan.limitNote) notes += '<p class="note note--alert">' + esc(plan.limitNote) + '</p>';
     if (plan.timeNote) notes += '<p class="note">' + esc(plan.timeNote) + '</p>';
 
-    return '<p class="eyebrow">Tu resultado</p>' +
-      '<h1 class="title" id="question-title">¡Tu plan está listo!</h1>' +
+    return '<h1 class="title" id="question-title">¡Tu plan personalizado está listo!</h1>' +
+      '<figure class="media result-media"><img src="' + esc(imgUrl('alma-plan-personalizado')) + '" alt="' + esc(ALT['alma-plan-personalizado']) + '" width="1080" height="1350" decoding="async"></figure>' +
       '<p class="subtitle">' + esc(plan.summary) + '</p>' +
       '<article class="plan-card" aria-label="Resumen de tu plan">' +
-        '<header class="plan-card__head"><h2>Tu plan personalizado</h2><p>' + esc(CFG.productName) + '</p></header>' +
         '<dl class="plan-rows">' +
           row('Nivel de entrenamiento', plan.levelLabel) +
           row('Objetivo principal', plan.goalLabel) +
+          row('Zona del cuerpo que deseas trabajar', cap(plan.zonesText)) +
           row('Modalidad recomendada', plan.modality) +
           row('Duración diaria', plan.durationLabel) +
           row('Frecuencia semanal', plan.frequencyLabel) +
           row('Intensidad inicial', plan.intensity) +
-          (plan.personalGoalText ? row('Tu meta de 28 días', plan.personalGoalText.charAt(0).toUpperCase() + plan.personalGoalText.slice(1)) : '') +
+          (plan.personalGoalText ? row('Tu meta de 28 días', cap(plan.personalGoalText)) : '') +
         '</dl>' +
-        '<p class="eyebrow" style="padding:0 20px;margin-top:6px">Calendario inicial · primera semana</p>' +
+        '<p class="eyebrow card-eyebrow">Calendario inicial · primera semana</p>' +
         '<div class="calendar-preview">' + calHtml + '</div>' +
         '<div class="cal-legend"><span>Entrenamiento</span><span class="rest">Descanso</span></div>' +
       '</article>' +
       notes +
       '<div class="cta-wrap">' +
-        '<button class="btn btn--primary" type="button" data-action="next">Ver mi programa</button>' +
+        '<button class="btn btn--primary" type="button" data-action="next">Descubrir mi programa →</button>' +
         '<button class="btn btn--link" type="button" data-action="restart">Volver a empezar</button>' +
       '</div>';
   }
@@ -1652,72 +1705,74 @@ window.MIRA_CONFIG = {
     }).join('') + '</div>';
   }
 
+  var INCLUDED_ITEMS = [
+    'Programa de Pilates Asiático de 28 días',
+    'Ejercicios guiados paso a paso',
+    'Plan adaptado a tu nivel',
+    'Calendario de entrenamiento',
+    'Guía digital de ejercicios',
+    'Registro de progreso y bienestar'
+  ];
+
+  function programCard(name, caption) {
+    return '<figure class="program-card"><img src="' + esc(imgUrl(name)) + '" alt="' + esc(ALT[name]) + '" width="1080" height="1350" loading="lazy" decoding="async"><figcaption>' + esc(caption) + '</figcaption></figure>';
+  }
+
   function renderPresentation() {
-    var plan = computePlan(state.answers);
-    var features = [
-      'Calendario de entrenamiento de 28 días',
-      'Ejercicios guiados de Pilates Asiático',
-      'Plan adaptado a tu nivel, objetivo y tiempo',
-      'Recetario complementario',
-      'Acceso desde tu celular'
-    ];
-    var benefits = [
-      'Más fuerza, con progresiones suaves',
-      'Mejor movilidad y flexibilidad',
-      'Postura más consciente durante el día',
-      'Bienestar físico con 15 minutos al día'
-    ];
-    return '<p class="eyebrow">Tu programa</p>' +
-      '<h1 class="title" id="question-title">Tu programa de Pilates Asiático de 28 días.</h1>' +
-      '<p class="subtitle">Adaptado para ti: ' + esc(plan.modality.toLowerCase()) + ', ' + esc(plan.durationLabel) + ', ' + esc(plan.frequencyLabel.toLowerCase()) + '.</p>' +
-      '<div class="mockups">' +
-        '<img src="' + esc(imgUrl('product-app')) + '" alt="' + esc(ALT['product-app']) + '" loading="lazy">' +
-        '<img src="' + esc(imgUrl('product-calendar')) + '" alt="' + esc(ALT['product-calendar']) + '" loading="lazy">' +
-        '<img src="' + esc(imgUrl('product-program')) + '" alt="' + esc(ALT['product-program']) + '" loading="lazy">' +
-        '<img src="' + esc(imgUrl('product-recipes')) + '" alt="' + esc(ALT['product-recipes']) + '" loading="lazy">' +
+    return '<h1 class="title" id="question-title">Tu programa de Pilates Asiático de 28 días</h1>' +
+      '<p class="subtitle">Un método adaptado a tu ritmo, tus objetivos y tu estilo de vida.</p>' +
+      '<div class="program-grid">' +
+        programCard('alma-app', 'Tu programa desde el celular') +
+        programCard('alma-calendario', 'Calendario de 28 días') +
+        programCard('alma-ebook', 'Guía completa de Pilates Asiático') +
+        programCard('alma-workbook', 'Cuaderno de seguimiento') +
       '</div>' +
-      '<h2 class="question">Qué incluye</h2>' +
-      '<ul class="feature-list">' + features.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' +
-      '<h2 class="question">Beneficios</h2>' +
-      '<ul class="checklist">' + benefits.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
-      '<h2 class="question">Preguntas frecuentes</h2>' + faqHtml() +
-      '<div class="cta-wrap">' + '<button class="btn btn--primary" type="button" data-action="next">Ver mi oferta</button></div>';
+      '<h2 class="question">Todo lo que recibirás</h2>' +
+      '<ul class="feature-list">' + INCLUDED_ITEMS.map(function (item) { return '<li>' + esc(item) + '</li>'; }).join('') + '</ul>' +
+      '<div class="cta-wrap"><button class="btn btn--primary" type="button" data-action="next">Quiero comenzar mi transformación →</button></div>';
   }
 
   function renderOffer() {
     var plan = computePlan(state.answers);
     var methods = (CFG.paymentMethods || []).length
-      ? '<div><p class="subtitle" style="margin:0 0 8px;font-size:14px">Métodos de pago disponibles</p><ul class="payments">' +
+      ? '<div><p class="subtitle" style="margin:0 0 8px;font-size:15px">Métodos de pago disponibles</p><ul class="payments">' +
         CFG.paymentMethods.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>'
       : '';
     var access = '<ul class="checklist">' + (CFG.accessConditions || []).map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>';
-    var label = CFG.checkoutButtonLabel || 'QUIERO COMENZAR MI PLAN';
-    return '<p class="eyebrow">Tu oferta</p>' +
-      '<h1 class="title" id="question-title">Comienza hoy tu programa personalizado de Pilates Asiático.</h1>' +
-      '<figure class="media media--wide"><img src="' + esc(imgUrl('product-bundle')) + '" alt="' + esc(ALT['product-bundle']) + '" decoding="async"></figure>' +
-      '<article class="plan-card"><header class="plan-card__head"><h2>Tu plan</h2><p>' + esc(plan.summary) + '</p></header>' +
+    var label = CFG.checkoutButtonLabel || '¡Sí, quiero comenzar mi plan!';
+    var benefits = [
+      'Fortalecimiento progresivo con movimientos suaves',
+      'Mejor movilidad y flexibilidad',
+      'Bienestar físico con 15 minutos al día',
+      'Entrenamiento desde casa, sin gimnasio'
+    ];
+    return '<h1 class="title" id="question-title">Es momento de volver a sentirte bien con tu cuerpo.</h1>' +
+      '<p class="subtitle">Comienza hoy tu programa personalizado de Pilates Asiático desde casa.</p>' +
+      '<figure class="media"><img src="' + esc(imgUrl('alma-bundle')) + '" alt="' + esc(ALT['alma-bundle']) + '" width="1080" height="1350" decoding="async"></figure>' +
+      '<article class="plan-card"><div class="plan-card__head"><h2>Tu resumen personalizado</h2><p>' + esc(plan.summary) + '</p></div>' +
         '<dl class="plan-rows">' +
-          row('Nivel', plan.levelLabel) + row('Modalidad', plan.modality) +
-          row('Duración', plan.durationLabel) + row('Frecuencia', plan.frequencyLabel) +
+          row('Nivel', plan.levelLabel) +
+          row('Zona del cuerpo', cap(plan.zonesText)) +
+          row('Modalidad', plan.modality) +
+          row('Duración', plan.durationLabel) +
+          row('Frecuencia', plan.frequencyLabel) +
         '</dl></article>' +
+      '<h2 class="question">Beneficios principales</h2>' +
+      '<ul class="checklist">' + benefits.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
+      '<h2 class="question">Todo lo que incluye</h2>' +
+      '<ul class="feature-list">' + INCLUDED_ITEMS.map(function (item) { return '<li>' + esc(item) + '</li>'; }).join('') + '</ul>' +
       '<div class="price-box">' +
-        '<p class="price-box__label">Oferta principal</p>' +
+        '<p class="price-box__label">Precio final</p>' +
         '<p class="price-box__price" data-price>' + esc(money(CFG.price, CFG.currency)) + '</p>' +
-        '<p class="price-box__meta">Pago único · Sin mensualidades</p>' +
+        '<p class="price-box__meta">Pago único</p>' +
       '</div>' +
-      '<h2 class="question">Incluye</h2>' +
-      '<ul class="feature-list">' +
-        '<li>Calendario de entrenamiento de 28 días</li>' +
-        '<li>Ejercicios guiados de Pilates Asiático</li>' +
-        '<li>Recetario complementario</li>' +
-        '<li>Acceso desde tu celular</li>' +
-      '</ul>' +
+      '<p class="note">Es un producto digital. Los dispositivos y accesorios físicos que aparecen en las imágenes no están incluidos.</p>' +
       '<h2 class="question">Condiciones de acceso</h2>' + access +
       methods +
       '<h2 class="question">Preguntas frecuentes</h2>' + faqHtml() +
       '<div class="cta-wrap">' +
         '<button class="btn btn--primary" type="button" data-action="checkout" data-cta>' + esc(label) + '</button>' +
-        '<p class="cta-note" data-cta-note>Pago único. Sin mensualidades.</p>' +
+        '<p class="cta-note" data-cta-note>Pago único · Acceso digital · Sin mensualidades.</p>' +
       '</div>';
   }
 
@@ -1772,7 +1827,7 @@ window.MIRA_CONFIG = {
       bar.id = 'sticky-cta';
       bar.className = 'sticky-cta';
       bar.setAttribute('data-visible', 'true');
-      bar.innerHTML = '<button class="btn btn--primary" type="button" data-action="checkout">' + esc(CFG.checkoutButtonLabel || 'QUIERO COMENZAR MI PLAN') + '</button>';
+      bar.innerHTML = '<button class="btn btn--primary" type="button" data-action="checkout">' + esc(CFG.checkoutButtonLabel || '¡Sí, quiero comenzar mi plan!') + '</button>';
       (document.getElementById('mira-root') || document.body).appendChild(bar);
     }
   }
