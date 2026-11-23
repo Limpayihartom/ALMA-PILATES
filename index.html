@@ -876,7 +876,7 @@ window.MIRA_CONFIG = {
   defaultFrequency: 3, // días por semana cuando la variante A no pregunta por frecuencia
 
   // Checkout: URL del producto/carrito/checkout. Los parámetros UTM se añaden automáticamente.
-  checkoutUrl: "",
+  checkoutUrl: "https://digitalbookss.impultienda.ar/checkout",
   checkoutButtonLabel: "¡Sí, quiero comenzar mi plan!",
 
   // Métodos de pago: SOLO los que realmente tengas activos. Si el array está vacío, la sección no se muestra.
@@ -1240,6 +1240,8 @@ window.MIRA_CONFIG = {
   }
 
   function imgUrl(name) {
+    var embedded = CFG.embedded || {};
+    if (embedded[name]) return embedded[name];
     var base = String(CFG.imagesBase || 'assets/images/');
     if (base.charAt(base.length - 1) !== '/') base += '/';
     return base + name + '.webp';
